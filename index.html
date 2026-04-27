@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Split — May 7–10, 2026</title>
+    <title>Dubrovnik — 6–10 maja 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -17,16 +17,14 @@
             --ink-mid:   oklch(35% 0.010 255);
             --ink-light: oklch(50% 0.008 255);
             --rule:      oklch(84% 0.008 75);
-            --accent:    oklch(54% 0.13 38);   /* muted terracotta */
-            --navy:      oklch(32% 0.07 242);  /* deep adriatic */
-            --teal:      oklch(48% 0.09 196);  /* coast teal */
+            --accent:    oklch(54% 0.13 38);
+            --navy:      oklch(32% 0.07 242);
 
             --f-serif: 'Cormorant Garamond', Georgia, serif;
             --f-sans:  'DM Sans', Helvetica, Arial, sans-serif;
         }
 
         html { scroll-behavior: smooth; }
-
         body {
             font-family: var(--f-sans);
             background: var(--bg);
@@ -34,32 +32,27 @@
             line-height: 1.6;
         }
 
-        /* ── LAYOUT ─────────────────────────────────── */
+        /* LAYOUT */
         .wrap      { max-width: 900px; margin: 0 auto; padding: 0 1.25rem; }
         .wrap-wide { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
         @media (min-width: 640px) {
             .wrap, .wrap-wide { padding: 0 2rem; }
         }
 
-        /* ── MASTHEAD ───────────────────────────────── */
-        .masthead {
-            border-bottom: 1px solid var(--rule);
-            padding: 3rem 0 2.5rem;
-        }
-        @media (min-width: 640px) {
-            .masthead { padding: 5rem 0 4rem; }
-        }
+        /* MASTHEAD */
+        .masthead { border-bottom: 1px solid var(--rule); padding: 3rem 0 2.5rem; }
+        @media (min-width: 640px) { .masthead { padding: 5rem 0 4rem; } }
+
         .masthead-inner {
             display: grid;
             grid-template-columns: 1fr;
-            align-items: end;
             gap: 1rem;
         }
         @media (min-width: 640px) {
-            .masthead-inner { grid-template-columns: 1fr auto; gap: 2rem; }
+            .masthead-inner { grid-template-columns: 1fr auto; align-items: end; gap: 2rem; }
         }
+
         .masthead-eyebrow {
-            font-family: var(--f-sans);
             font-size: 0.72rem;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -69,54 +62,52 @@
         }
         .masthead h1 {
             font-family: var(--f-serif);
-            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            font-size: clamp(3rem, 8vw, 6.5rem);
             font-weight: 400;
             line-height: 1;
             letter-spacing: -0.02em;
             color: var(--ink);
         }
-        .masthead h1 em {
-            font-style: italic;
-            color: var(--navy);
-        }
+        .masthead h1 em { font-style: italic; color: var(--navy); }
+
         .masthead-meta {
-            text-align: left;
             font-size: 0.85rem;
             color: var(--ink-mid);
             line-height: 1.8;
         }
-        @media (min-width: 640px) {
-            .masthead-meta { text-align: right; }
-        }
+        @media (min-width: 640px) { .masthead-meta { text-align: right; } }
         .masthead-meta strong { color: var(--ink); font-weight: 500; }
 
-        /* ── INTRO ──────────────────────────────────── */
-        .intro-section {
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--rule);
-        }
+        /* INTRO */
+        .intro-section { padding: 4rem 0; border-bottom: 1px solid var(--rule); }
+
         .intro-lead {
             font-family: var(--f-serif);
-            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            font-size: clamp(1.3rem, 3vw, 1.85rem);
             font-weight: 400;
             line-height: 1.5;
             color: var(--ink);
             max-width: 700px;
             margin-bottom: 3rem;
         }
-        .intro-lead span { color: var(--accent); font-style: italic; }
+        .intro-lead span { color: oklch(48% 0.13 38); font-style: italic; }
 
         .tips-row {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
+            grid-template-columns: 1fr;
             border: 1px solid var(--rule);
         }
-        .tip-col {
-            padding: 2rem;
-            border-right: 1px solid var(--rule);
+        @media (min-width: 640px) {
+            .tips-row { grid-template-columns: repeat(3, 1fr); }
         }
-        .tip-col:last-child { border-right: none; }
+        .tip-col {
+            padding: 1.75rem;
+            border-bottom: 1px solid var(--rule);
+        }
+        @media (min-width: 640px) {
+            .tip-col { border-bottom: none; border-right: 1px solid var(--rule); }
+            .tip-col:last-child { border-right: none; }
+        }
         .tip-col-label {
             font-size: 0.68rem;
             font-weight: 500;
@@ -135,163 +126,8 @@
         }
         .tip-col li:last-child { border-bottom: none; }
 
-        @media (max-width: 700px) {
-            .tips-row { grid-template-columns: 1fr; }
-            .tip-col { border-right: none; border-bottom: 1px solid var(--rule); }
-            .tip-col:last-child { border-bottom: none; }
-        }
-
-        /* ── DAYS ───────────────────────────────────── */
-        .days-section { padding: 0; }
-
-        .day-block { border-bottom: 1px solid var(--rule); }
-
-        .day-header {
-            display: grid;
-            grid-template-columns: 60px 1fr;
-            gap: 1rem;
-            align-items: start;
-        }
-        @media (min-width: 640px) {
-            .day-header { grid-template-columns: 90px 1fr; gap: 2rem; }
-        }
-        .day-num {
-            font-family: var(--f-serif);
-            font-size: 3rem;
-            font-weight: 400;
-            line-height: 1;
-            color: var(--rule);
-            letter-spacing: -0.04em;
-        }
-        @media (min-width: 640px) {
-            .day-num { font-size: 4.5rem; }
-        }
-        .day-header-text {}
-        .day-label {
-            font-size: 0.68rem;
-            font-weight: 500;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--ink-mid);
-            margin-bottom: 0.5rem;
-        }
-        .day-title {
-            font-family: var(--f-serif);
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            font-weight: 500;
-            line-height: 1.15;
-            color: var(--ink);
-        }
-        .day-narrative {
-            margin-top: 0.75rem;
-            font-size: 0.92rem;
-            color: var(--ink-mid);
-            font-style: italic;
-            font-family: var(--f-serif);
-            font-size: 1.1rem;
-        }
-
-        /* ── TIMELINE ───────────────────────────────── */
-        .timeline { padding-bottom: 3rem; }
-
-        .tl-item {
-            display: grid;
-            grid-template-columns: 60px 1fr;
-            gap: 1rem;
-            padding: 1.5rem 0;
-            border-top: 1px solid var(--rule);
-            position: relative;
-        }
-        @media (min-width: 640px) {
-            .tl-item { grid-template-columns: 90px 1fr; gap: 2rem; padding: 2rem 0; }
-        }
-
-        .tl-time {
-            padding-top: 0.15rem;
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            color: var(--ink-mid);
-            text-transform: uppercase;
-        }
-
-        .tl-body {}
-
-        .tl-name {
-            font-family: var(--f-serif);
-            font-size: 1.45rem;
-            font-weight: 500;
-            color: var(--ink);
-            cursor: pointer;
-            display: inline;
-            transition: color 0.2s;
-            text-decoration: none;
-        }
-        .tl-name:hover { color: var(--accent); }
-
-        .tl-name-row {
-            display: flex;
-            align-items: baseline;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .tl-duration {
-            font-size: 0.72rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--teal);
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .tl-notes {
-            font-size: 0.93rem;
-            color: var(--ink);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .tl-photo {
-            width: 100%;
-            max-width: 340px;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-            border-radius: 2px;
-            display: block;
-            filter: saturate(0.85) contrast(1.02);
-            transition: filter 0.3s;
-        }
-        @media (max-width: 639px) {
-            .tl-photo { max-width: 100%; }
-        }
-        .tl-photo:hover { filter: saturate(1) contrast(1.02); }
-
-        .tl-maps-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: oklch(44% 0.13 38);
-            text-decoration: none;
-            margin-top: 0.75rem;
-            padding: 0.5rem 0;
-            min-height: 44px;
-            transition: opacity 0.2s;
-        }
-        .tl-maps-link:hover { opacity: 0.65; }
-        .tl-maps-link svg { flex-shrink: 0; }
-
-
-
-        /* ── MAP ────────────────────────────────────── */
-        .map-section {
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--rule);
-        }
+        /* MAP */
+        .map-section { padding: 4rem 0; border-bottom: 1px solid var(--rule); }
         .section-eyebrow {
             font-size: 0.68rem;
             font-weight: 500;
@@ -307,20 +143,16 @@
             color: var(--ink);
             margin-bottom: 2rem;
         }
-
         #map {
             width: 100%;
-            height: 380px;
+            height: 360px;
             border-radius: 2px;
             border: 1px solid var(--rule);
         }
-        @media (min-width: 640px) {
-            #map { height: 520px; }
-        }
+        @media (min-width: 640px) { #map { height: 500px; } }
 
         .map-style-switcher {
             display: flex;
-            gap: 0;
             margin-bottom: 1rem;
             border: 1px solid var(--rule);
             width: fit-content;
@@ -344,137 +176,167 @@
         .map-style-btn:last-child { border-right: none; }
         .map-style-btn:hover { background: var(--bg-alt); color: var(--ink); }
         .map-style-btn.active { background: var(--ink); color: var(--bg); }
+        .map-hint { margin-top: 1rem; font-size: 0.82rem; color: var(--ink-mid); }
 
-        .map-hint {
-            margin-top: 1rem;
-            font-size: 0.82rem;
-            color: var(--ink-mid);
-        }
+        /* DAYS */
+        .days-section { padding: 0; }
+        .day-block { border-bottom: 1px solid var(--rule); }
 
-        /* ── ADD LOCATION ───────────────────────────── */
-        .add-section {
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--rule);
-        }
-
-        .form-grid {
+        .day-header {
+            border-radius: 12px;
+            padding: 1.75rem 1.5rem 1.5rem;
+            margin: 2rem 0 0;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            grid-template-columns: 60px 1fr;
+            gap: 1rem;
+            align-items: start;
         }
-        .form-grid .full { grid-column: 1 / -1; }
+        @media (min-width: 640px) {
+            .day-header { padding: 2rem 2rem 1.75rem; grid-template-columns: 90px 1fr; gap: 2rem; }
+        }
 
-        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-        .form-group label {
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--ink);
-        }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            font-family: var(--f-sans);
-            font-size: 1rem;
-            color: var(--ink);
-            background: transparent;
-            border: none;
-            border-bottom: 1.5px solid var(--rule);
-            padding: 0.75rem 0;
-            outline: none;
-            transition: border-color 0.2s;
-            width: 100%;
-            min-height: 44px;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--ink);
-        }
-        .form-group textarea { resize: vertical; min-height: 70px; }
-        .form-group small { font-size: 0.78rem; color: var(--ink-mid); }
+        /* Day colours */
+        .day-block[data-day="1"] .day-header { background: oklch(94% 0.03 242); }
+        .day-block[data-day="2"] .day-header { background: oklch(93% 0.04 196); }
+        .day-block[data-day="3"] .day-header { background: oklch(94% 0.03 38); }
+        .day-block[data-day="4"] .day-header { background: oklch(93% 0.04 150); }
+        .day-block[data-day="5"] .day-header { background: oklch(93% 0.03 290); }
 
-        .btn-submit {
-            margin-top: 2rem;
-            background: var(--ink);
-            color: var(--bg);
-            border: none;
-            padding: 0.85rem 2.5rem;
-            font-family: var(--f-sans);
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            border-radius: 1px;
-        }
-        .btn-submit:hover { opacity: 0.75; }
-        .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+        .day-block[data-day="1"] .day-num { color: oklch(70% 0.08 242); }
+        .day-block[data-day="2"] .day-num { color: oklch(62% 0.09 196); }
+        .day-block[data-day="3"] .day-num { color: oklch(68% 0.10 38); }
+        .day-block[data-day="4"] .day-num { color: oklch(65% 0.09 150); }
+        .day-block[data-day="5"] .day-num { color: oklch(65% 0.08 290); }
 
-        /* Custom locations list */
-        .custom-list { margin-top: 2.5rem; }
-        .custom-list-title {
+        .day-block[data-day="1"] .day-label { color: oklch(42% 0.08 242); }
+        .day-block[data-day="2"] .day-label { color: oklch(38% 0.09 196); }
+        .day-block[data-day="3"] .day-label { color: oklch(42% 0.10 38); }
+        .day-block[data-day="4"] .day-label { color: oklch(40% 0.09 150); }
+        .day-block[data-day="5"] .day-label { color: oklch(40% 0.08 290); }
+
+        .day-num {
+            font-family: var(--f-serif);
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+        @media (min-width: 640px) { .day-num { font-size: 4.5rem; } }
+
+        .day-label {
             font-size: 0.68rem;
             font-weight: 500;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--ink-light);
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--rule);
+            margin-bottom: 0.5rem;
+        }
+        .day-title {
+            font-family: var(--f-serif);
+            font-size: clamp(1.6rem, 4vw, 2.6rem);
+            font-weight: 500;
+            line-height: 1.15;
+            color: var(--ink);
+        }
+        .day-narrative {
+            margin-top: 0.6rem;
+            font-family: var(--f-serif);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--ink-mid);
         }
 
-        .custom-item {
-            padding: 1.25rem 0;
-            border-bottom: 1px solid var(--rule);
+        /* TIMELINE */
+        .timeline { padding-bottom: 2.5rem; }
+
+        .tl-item {
             display: grid;
-            grid-template-columns: 1fr auto;
+            grid-template-columns: 60px 1fr;
             gap: 1rem;
-            align-items: start;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--rule);
         }
-        .custom-item-name {
-            font-family: var(--f-serif);
-            font-size: 1.1rem;
+        @media (min-width: 640px) {
+            .tl-item { grid-template-columns: 90px 1fr; gap: 2rem; padding: 2rem 0; }
+        }
+
+        .tl-time {
+            padding-top: 0.15rem;
+            font-size: 0.72rem;
             font-weight: 500;
-            cursor: pointer;
+            letter-spacing: 0.04em;
+            color: var(--ink-mid);
+            text-transform: uppercase;
+        }
+
+        .tl-name-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .tl-name {
+            font-family: var(--f-serif);
+            font-size: 1.45rem;
+            font-weight: 500;
             color: var(--ink);
+            cursor: pointer;
+            text-decoration: none;
             transition: color 0.2s;
         }
-        .custom-item-name:hover { color: var(--accent); }
-        .custom-item-sub { font-size: 0.85rem; color: var(--ink-mid); margin-top: 0.2rem; }
-        .custom-item-notes { font-size: 0.87rem; color: var(--ink); margin-top: 0.4rem; font-style: italic; }
+        .tl-name:hover { color: oklch(48% 0.13 38); }
 
-        .btn-remove {
-            background: none;
-            border: 1px solid var(--rule);
-            padding: 0.3rem 0.7rem;
-            font-family: var(--f-sans);
+        .tl-duration {
             font-size: 0.72rem;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--ink-light);
-            cursor: pointer;
-            border-radius: 1px;
-            transition: all 0.15s;
+            color: oklch(44% 0.09 196);
+            font-weight: 500;
             white-space: nowrap;
         }
-        .btn-remove:hover { border-color: var(--accent); color: var(--accent); }
 
-        @media (max-width: 600px) {
-            .form-grid { grid-template-columns: 1fr; }
+        .tl-notes {
+            font-size: 0.93rem;
+            color: var(--ink);
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
-        /* ── FOOTER ─────────────────────────────────── */
-        footer {
-            padding: 3rem 0;
-            text-align: center;
+        .tl-photo {
+            width: 100%;
+            max-width: 340px;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            filter: saturate(0.85) contrast(1.02);
+            transition: filter 0.3s;
         }
+        @media (max-width: 639px) { .tl-photo { max-width: 100%; } }
+        .tl-photo:hover { filter: saturate(1) contrast(1.02); }
+
+        .tl-maps-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: oklch(44% 0.13 38);
+            text-decoration: none;
+            margin-top: 0.75rem;
+            padding: 0.5rem 0;
+            min-height: 44px;
+            transition: opacity 0.2s;
+        }
+        .tl-maps-link:hover { opacity: 0.65; }
+
+        /* FOOTER */
+        footer { padding: 3rem 0; text-align: center; }
         footer p { font-size: 0.82rem; color: var(--ink-mid); line-height: 2; }
-        footer a { color: var(--accent); text-decoration: none; }
 
-        /* ── SHARE BTN ───────────────────────────────── */
+        /* SHARE */
         .share-btn {
             position: fixed;
             bottom: 1.25rem;
@@ -490,33 +352,12 @@
             text-transform: uppercase;
             cursor: pointer;
             border-radius: 1px;
-            transition: opacity 0.2s;
             z-index: 1000;
             box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            transition: opacity 0.2s;
         }
         .share-btn:hover { opacity: 0.8; }
 
-        /* Day header colored bands */
-        .day-header {
-            border-radius: 12px;
-            padding: 2rem 1.5rem 1.5rem;
-            margin: 2rem 0 0;
-        }
-        .day-block[data-day="1"] .day-header { background: oklch(94% 0.03 242); }
-        .day-block[data-day="2"] .day-header { background: oklch(93% 0.03 196); }
-        .day-block[data-day="3"] .day-header { background: oklch(94% 0.03 38); }
-
-        .day-block[data-day="1"] .day-num { color: oklch(70% 0.08 242); }
-        .day-block[data-day="2"] .day-num { color: oklch(65% 0.09 196); }
-        .day-block[data-day="3"] .day-num { color: oklch(70% 0.10 38); }
-
-        .day-block[data-day="1"] .day-label { color: oklch(45% 0.08 242); }
-        .day-block[data-day="2"] .day-label { color: oklch(40% 0.09 196); }
-        .day-block[data-day="3"] .day-label { color: oklch(42% 0.10 38); }
-
-        .tl-photo { border-radius: 8px; }
-
-        /* Map popup override */
         .leaflet-popup-content-wrapper {
             border-radius: 2px !important;
             font-family: var(--f-sans) !important;
@@ -532,13 +373,13 @@
         <header class="masthead">
             <div class="masthead-inner">
                 <div>
-                    <p class="masthead-eyebrow">Travel Itinerary · Croatia</p>
-                    <h1>Split <em>Adventure</em></h1>
+                    <p class="masthead-eyebrow">Plan Podróży · Chorwacja</p>
+                    <h1>Dubrovnik <em>Adventure</em></h1>
                 </div>
                 <div class="masthead-meta">
-                    <strong>May 7–10, 2026</strong><br>
-                    3 nights · 4 days<br>
-                    Old Town · Marjan · Bačvice
+                    <strong>6–10 maja 2026</strong><br>
+                    4 noce · 5 dni<br>
+                    Stare Miasto · Lokrum · Srđ
                 </div>
             </div>
         </header>
@@ -546,56 +387,55 @@
         <!-- INTRO -->
         <section class="intro-section">
             <p class="intro-lead">
-                Three days of <span>ancient Roman architecture</span>, Adriatic coastline, and some of Croatia's best nightlife — all within walking distance of each other.
+                Pięć dni <span>średniowiecznej architektury</span>, Adriatyku, wysp i jednych z najlepszych barów w Chorwacji — wszystko na wyciągnięcie ręki.
             </p>
             <div class="tips-row">
                 <div class="tip-col">
-                    <div class="tip-col-label">Money</div>
+                    <div class="tip-col-label">Finanse</div>
                     <ul>
-                        <li>Combo tickets for Cathedral attractions</li>
-                        <li>Palace areas largely free to explore</li>
-                        <li>Beach bars cheaper than Old Town</li>
-                        <li>Charlie's: great value liter cocktails</li>
+                        <li>Dubrovnik Pass warto kupić online z wyprzedzeniem</li>
+                        <li>Wiele miejsc w Starym Mieście wejście bezpłatne</li>
+                        <li>Prom na wyspy: ~30€ w obie strony</li>
+                        <li>Kolejka linowa na Srđ: 32€, Uber: 22€</li>
                     </ul>
                 </div>
                 <div class="tip-col">
-                    <div class="tip-col-label">Architecture</div>
+                    <div class="tip-col-label">Architektura</div>
                     <ul>
-                        <li>Diocletian's Palace: UNESCO, still lived in</li>
-                        <li>Bell tower has the best views in town</li>
-                        <li>Before 10 am to avoid crowds</li>
-                        <li>Built 305 AD — oldest inhabited palace</li>
+                        <li>Stare Miasto — żywy obiekt UNESCO</li>
+                        <li>Fort Lovrijenac: sceny z Game of Thrones</li>
+                        <li>Przed 10:00 żeby uniknąć tłumów</li>
+                        <li>Mury z XV wieku — absolutny must-see</li>
                     </ul>
                 </div>
                 <div class="tip-col">
-                    <div class="tip-col-label">Nightlife</div>
+                    <div class="tip-col-label">Życie nocne</div>
                     <ul>
-                        <li>Charlie's Bar: affordable, great vibe</li>
-                        <li>Boiler Club: check DJ lineup first</li>
-                        <li>Split After Dark: boat party, highly recommended</li>
-                        <li>Everything walkable — no taxis needed</li>
+                        <li>Buža Bar: bar na klifie ze skokami</li>
+                        <li>Kluby w Starym Mieście: unikalne klimaty</li>
+                        <li>DBC w Gruž: bardziej lokalna atmosfera</li>
+                        <li>Wszystko w zasięgu spaceru lub krótkiej jazdy</li>
                     </ul>
                 </div>
             </div>
         </section>
-
     </div>
 
     <!-- MAP -->
     <div class="wrap-wide">
         <section class="map-section">
             <div class="wrap">
-                <div class="section-eyebrow">Interactive Map</div>
-                <h2 class="section-title">All Locations</h2>
+                <div class="section-eyebrow">Interaktywna Mapa</div>
+                <h2 class="section-title">Wszystkie Miejsca</h2>
             </div>
             <div style="padding: 0 1.25rem;">
                 <div class="map-style-switcher">
-                    <button class="map-style-btn active" onclick="changeMapStyle('default', this)">Default</button>
-                    <button class="map-style-btn" onclick="changeMapStyle('satellite', this)">Satellite</button>
-                    <button class="map-style-btn" onclick="changeMapStyle('terrain', this)">Terrain</button>
+                    <button class="map-style-btn active" onclick="changeMapStyle('default', this)">Domyślna</button>
+                    <button class="map-style-btn" onclick="changeMapStyle('satellite', this)">Satelita</button>
+                    <button class="map-style-btn" onclick="changeMapStyle('terrain', this)">Teren</button>
                 </div>
                 <div id="map"></div>
-                <p class="map-hint">Click any location name throughout the page to open in Google Maps.</p>
+                <p class="map-hint">Kliknij dowolną nazwę miejsca w planie żeby otworzyć w Google Maps.</p>
             </div>
         </section>
     </div>
@@ -604,297 +444,287 @@
         <!-- DAYS -->
         <section class="days-section">
 
-            <!-- DAY 1 -->
+            <!-- DZIEŃ 1 -->
             <div class="day-block" data-day="1">
                 <div class="day-header">
                     <div class="day-num">1</div>
-                    <div class="day-header-text">
-                        <div class="day-label">Wednesday, May 7</div>
-                        <h2 class="day-title">Ancient Split &amp; First Night Out</h2>
-                        <p class="day-narrative">Start with the crown jewel, then ease into Split's nightlife scene</p>
+                    <div>
+                        <div class="day-label">Środa, 6 maja</div>
+                        <h2 class="day-title">Przylot i Chill</h2>
+                        <p class="day-narrative">Wylot 10:10. Po przylocie spacer po Starym Mieście i zimne piwo w barze na klifie</p>
                     </div>
                 </div>
                 <div class="timeline">
                     <div class="tl-item">
-                        <div class="tl-time">9:00 am</div>
-                        <div class="tl-body">
+                        <div class="tl-time">Po południu</div>
+                        <div>
                             <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5082646,16.4401754,'Diocletian\'s Palace');return false;">Diocletian's Palace</a>
-                                <span class="tl-duration">2 hrs</span>
+                                <a class="tl-name" href="#" onclick="openInMaps(42.6409423,18.1115678,'Stary Port');return false;">Stary Port</a>
+                                <span class="tl-duration">1–2 godz.</span>
                             </div>
-                            <p class="tl-notes">Arrive before 10 am to explore without crowds. This 1,700-year-old Roman palace is the heart of Split's old town — you're walking through living history.</p>
-                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPAVwqr1lez80OCXYyHEp0XHV5KLtwjudmwg6M-Hi4tyChElm5sNFCINZCFPR-rEiH5wgogablk2tJskdvJbnnqcaZSYXoRsnmt2rjLAdIlwLj7vWtVXWgBvvepg77CsZn9eGUygeaxmtg65Q=s800-w400-h300" alt="Diocletian's Palace" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5082646,16.4401754,'Diocletian\'s Palace');return false;">
+                            <p class="tl-notes">Punkt wyjściowy do eksploracji. Widoki na mury miejskie, statki i turkusowe wody. Stąd odpływają promy na wyspę Lokrum.</p>
+                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMT2I52WjkQB8JGTCfYhDhWtb1JnWUrSdSInpny4ZjCxvwyxjfWEoKGgLBZueVpHhWkRShUcDwEmOSwl5K56bTDfLV9uU1we0GscXkUIVMlUsWoUTLqxf1gMX3z1m3Rm4Xe07W7EnPzh3Iu=s800-w400-h300" alt="Stary Port" class="tl-photo">
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.6409423,18.1115678,'Stary Port');return false;">
                                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
+                                Otwórz w Google Maps
                             </a>
                         </div>
                     </div>
                     <div class="tl-item">
-                        <div class="tl-time">11:30 am</div>
-                        <div class="tl-body">
+                        <div class="tl-time">Wieczorem</div>
+                        <div>
                             <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5081034,16.4404805,'Saint Domnius Cathedral');return false;">Saint Domnius Cathedral</a>
-                                <span class="tl-duration">1 hr</span>
+                                <a class="tl-name" href="#" onclick="openInMaps(42.6413588,18.1089672,'Stradun');return false;">Stradun</a>
+                                <span class="tl-duration">2 godz.</span>
                             </div>
-                            <p class="tl-notes">Climb the bell tower for panoramic views of the city. Steep stairs but completely worth it. The world's oldest Catholic cathedral still in its original structure.</p>
-                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMT2I52WjkQB8JGTCfYhDhWtb1JnWUrSdSInpny4ZjCxvwyxjfWEoKGgLBZueVpHhWkRShUcDwEmOSwl5K56bTDfLV9uU1we0GscXkUIVMlUsWoUTLqxf1gMX3z1m3Rm4Xe07W7EnPzh3Iu=s800-w400-h300" alt="Saint Domnius Cathedral" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5081034,16.4404805,'Saint Domnius Cathedral');return false;">
+                            <p class="tl-notes">Główna ulica Starego Miasta. Błyszczący kamień wypolerowany przez wieki. Kafejki, restauracje i niesamowity klimat.</p>
+                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNzdKhXoLpA3NciQG6XO7R_d7PUZoYSpihan_l5_84AxAx-u4dXd3mJsKNxW4Me7llsQamqNNBoKQpJe33zL-3Qilvz1LGP2PRAI1L_ByBoZbaDp4-zABJFh4a5akgQhHPfUfnA8yQZJHM6FOY=s800-w400-h300" alt="Stradun" class="tl-photo">
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.6413588,18.1089672,'Stradun');return false;">
                                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
+                                Otwórz w Google Maps
                             </a>
                         </div>
                     </div>
                     <div class="tl-item">
-                        <div class="tl-time">1:00 pm</div>
-                        <div class="tl-body">
+                        <div class="tl-time">Wieczorem</div>
+                        <div>
                             <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5094321,16.440838,'Gregory of Nin Statue');return false;">Gregory of Nin Statue</a>
-                                <span class="tl-duration">15 min</span>
+                                <a class="tl-name" href="#" onclick="openInMaps(42.639053,18.108707,'Buža Bar');return false;">Buža Bar</a>
+                                <span class="tl-duration">2–3 godz.</span>
                             </div>
-                            <p class="tl-notes">Rub the big toe for good luck — it's polished to a shine from thousands of wishes.</p>
-                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMwCpBiK6KdsarnsLWibYQvpBW5ijsSoFcNLQobQCK9eFB38MLr_Qw94AD4iU6SjKR0fQ4Em8Yn7yN-Nde4-AsInQ6f8h4otVNVya2Dmn8dVYqkEAbpFw2N_akzyCad9zc0XTTSbs2gFtWXUfiBtYeyjg=s800-w400-h300" alt="Gregory of Nin" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5094321,16.440838,'Gregory of Nin Statue');return false;">
+                            <p class="tl-notes">Legendarny bar na klifie. Niesamowite widoki, możliwość skoków do wody, totalny relaks. Idealny na pierwszy wieczór.</p>
+                            <img src="https://lh3.googleusercontent.com/places/ANXAkqEjpIsFQLyZL3HKVcl34H5JGaR6rziRmClfzqQwl5gH7auZuxm0ydeAh8AO8rV-S1hAnp0V87650uhw_kJttM5HwcfO4ZgQiKk=s800-w400-h300" alt="Buža Bar" class="tl-photo">
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.639053,18.108707,'Buža Bar');return false;">
                                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
-                            </a>
-                        </div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-time">2:00 pm</div>
-                        <div class="tl-body">
-                            <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5077507,16.4384962,'Riva Promenade');return false;">Riva Promenade</a>
-                                <span class="tl-duration">2 hrs</span>
-                            </div>
-                            <p class="tl-notes">Split's living room. Lunch at one of the waterfront cafes, then long afternoon people-watching over coffee.</p>
-                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPG-F1mk-SW-HndGzEupzG4iLI48Cy0CZuMwKvP1RcC4rNyKt_6zi22WzKz54Ng0o8Jh6eF28OmSJYdzIjZfRw5o-YnP_WUZ2iE_pOoZJ9YjA4yPL110Yj_FYEiBFwodyTJxhE3R1gbegwetA=s800-w400-h300" alt="Riva Promenade" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5077507,16.4384962,'Riva Promenade');return false;">
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
-                            </a>
-                        </div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-time">9:00 pm</div>
-                        <div class="tl-body">
-                            <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5095688,16.4391911,'Charlie\'s Bar');return false;">Charlie's Bar</a>
-                                <span class="tl-duration">3 hrs</span>
-                            </div>
-                            <p class="tl-notes">Affordable drinks, great atmosphere, famous frozen cocktails. Very popular with young crowds — a solid start to the night.</p>
-                            <img src="https://lh3.googleusercontent.com/places/ANXAkqEjpIsFQLyZL3HKVcl34H5JGaR6rziRmClfzqQwl5gH7auZuxm0ydeAh8AO8rV-S1hAnp0V87650uhw_kJttM5HwcfO4ZgQiKk=s800-w400-h300" alt="Charlie's Bar" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5095688,16.4391911,'Charlie\'s Bar');return false;">
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
+                                Otwórz w Google Maps
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- DAY 2 -->
+            <!-- DZIEŃ 2 -->
             <div class="day-block" data-day="2">
                 <div class="day-header">
                     <div class="day-num">2</div>
-                    <div class="day-header-text">
-                        <div class="day-label">Thursday, May 8</div>
-                        <h2 class="day-title">Nature, Views &amp; Club Night</h2>
-                        <p class="day-narrative">Escape to Marjan Hill, hit the beach, then experience Split's club scene</p>
+                    <div>
+                        <div class="day-label">Czwartek, 7 maja</div>
+                        <h2 class="day-title">Akcja i Widoki</h2>
+                        <p class="day-narrative">Rano kajaki wzdłuż murów, po południu fort z GoT, wieczorem klub</p>
                     </div>
                 </div>
                 <div class="timeline">
                     <div class="tl-item">
-                        <div class="tl-time">9:00 am</div>
-                        <div class="tl-body">
+                        <div class="tl-time">Rano</div>
+                        <div>
                             <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5166667,16.4166667,'Marjan Hill');return false;">Marjan Hill</a>
-                                <span class="tl-duration">3 hrs</span>
+                                <a class="tl-name" href="#" onclick="openInMaps(42.639,18.108,'Kajaki Betina');return false;">Kajaki do Jaskini Betina</a>
+                                <span class="tl-duration">3–4 godz.</span>
                             </div>
-                            <p class="tl-notes">The lungs of the city. Forested hiking paths with stunning viewpoints over the Adriatic. Bring water and comfortable shoes.</p>
-                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMKGkb0qMSITcS44GbhtCkpDki-JP0scFreF55Sfks9fmh_DY7Z0kTIO68CxqmdndtDm_9CZduu6Tk3COUIBslnPjMe2eyWfN8uPT910z5Tatqp2tP9DHAv5uIlbgsthijP3WeFkIMulCIwuw=s800-w400-h300" alt="Marjan Hill" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5166667,16.4166667,'Marjan Hill');return false;">
+                            <p class="tl-notes">Wypożycz kajaki przy plaży Pile lub zapisz się na wycieczkę. Płyniesz wzdłuż murów, odkrywasz jaskinie, pływasz w kryształowej wodzie.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-time">Po południu</div>
+                        <div>
+                            <div class="tl-name-row">
+                                <a class="tl-name" href="#" onclick="openInMaps(42.6406296,18.1042975,'Fort Lovrijenac');return false;">Fort Lovrijenac</a>
+                                <span class="tl-duration">1–2 godz.</span>
+                            </div>
+                            <p class="tl-notes">Game of Thrones Red Keep. Niesamowite widoki na Stare Miasto i morze — 37 metrów nad poziomem morza. Wejście po 175 schodach.</p>
+                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOfXYbEwqkhup652p3uRgJT0yXY9xU-l4-DeDpL3b9koqLLbcp74FyWkDmW-n7Ua6VYyzcxKzLDgJ4z8IPxGA_iCH68GjnBDFel8Db3deequupgxo5epTLfHBPpls5jk9Yv2xB66woRuBh_NA=s800-w400-h300" alt="Fort Lovrijenac" class="tl-photo">
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.6406296,18.1042975,'Fort Lovrijenac');return false;">
                                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
+                                Otwórz w Google Maps
                             </a>
                         </div>
                     </div>
                     <div class="tl-item">
-                        <div class="tl-time">1:00 pm</div>
-                        <div class="tl-body">
+                        <div class="tl-time">Wieczorem</div>
+                        <div>
                             <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5048696,16.4179331,'Meštrović Gallery');return false;">Meštrović Gallery</a>
-                                <span class="tl-duration">1.5 hrs</span>
+                                <span class="tl-name">Kolacja w Starym Mieście</span>
+                                <span class="tl-duration">2 godz.</span>
                             </div>
-                            <p class="tl-notes">Monumental sculpture in peaceful gardens overlooking the Adriatic. Check if the main building is open — sometimes under renovation.</p>
-                            <img src="https://lh3.googleusercontent.com/places/ANXAkqG5MnsMNWPVLHKlvIEIortzx2FrFy2dlJoy_F6KeN6UOFD7654pWUjPM7Krk7MnMYM5fbd5H_OTpUcsrKbryk9jji1ZSMJ7ilE=s800-w400-h300" alt="Meštrović Gallery" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5048696,16.4179331,'Meštrović Gallery');return false;">
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
-                            </a>
-                        </div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-time">3:30 pm</div>
-                        <div class="tl-body">
-                            <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5024856,16.4468835,'Bačvice Beach');return false;">Bačvice Beach</a>
-                                <span class="tl-duration">3 hrs</span>
-                            </div>
-                            <p class="tl-notes">Sandy, shallow water — perfect for swimming. Bars on-site. Great spot to rest before tonight's club.</p>
-                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMG0GR1cdk52GVP0gi-Ch5b09_Q5Q-WParVUTOfKmGhA5qulLjN08a1d0Es7RWvOqGW72ggM7r8sC9t9t-S1s-iJxFbogd1saMCYxQfiG9wInBTxzvjZe-SsQI2ekJ1YS1y4UktzEcQLwgVWqayZ8U_Yw=s800-w400-h300" alt="Bačvice Beach" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5024856,16.4468835,'Bačvice Beach');return false;">
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
-                            </a>
-                        </div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-time">8:00 pm</div>
-                        <div class="tl-body">
-                            <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.509946,16.4391333,'Split Rooftop Bar');return false;">Split Rooftop Bar</a>
-                                <span class="tl-duration">1.5 hrs</span>
-                            </div>
-                            <p class="tl-notes">Pre-club drinks above the old town. Pricey (€9–20 cocktails) but the sunset view over the palace rooftops earns every kuna.</p>
-                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOWn0G2ix7qjsYoyfKT7xNQefya0MHfFDiwpFvq--Xdn87CJBlhYSzpr2IgV_aon3_sAt_e7K-Mfq7qpST4wCD96hJKMLi9JOi32M9WLgQXDYtYIZDfLV50e6MaHtqZsrTwrrgzs_GBUvr4=s800-w400-h300" alt="Rooftop Bar" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.509946,16.4391333,'Split Rooftop Bar');return false;">
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
-                            </a>
-                        </div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-time">11:00 pm</div>
-                        <div class="tl-body">
-                            <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.51065,16.4376543,'Boiler Club');return false;">Boiler Club</a>
-                                <span class="tl-duration">4 hrs</span>
-                            </div>
-                            <p class="tl-notes">High-end club with great DJs and occasional live viola performances. €30 entry — check their lineup before going.</p>
-                            <img src="https://lh3.googleusercontent.com/places/ANXAkqHaGIk8XrABoM03Y4KqoPaDf6FEk5GcaiXi6Scbr585f3bS2y-0Bs5qWj4z-5gMS0nUUyq6EY8QPO-UBzuNvBjGbvCXwgemll4=s800-w400-h300" alt="Boiler Club" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.51065,16.4376543,'Boiler Club');return false;">
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
-                            </a>
+                            <p class="tl-notes">Polecane: Konoba Dalmatino, Azur, Proto. Spróbuj: czarne risotto, pašticadę, świeże ryby. Potem: kluby w centrum.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- DAY 3 -->
+            <!-- DZIEŃ 3 -->
             <div class="day-block" data-day="3">
                 <div class="day-header">
                     <div class="day-num">3</div>
-                    <div class="day-header-text">
-                        <div class="day-label">Friday, May 9</div>
-                        <h2 class="day-title">Final Exploration &amp; Boat Party</h2>
-                        <p class="day-narrative">Flexible morning, then the night everyone talks about</p>
+                    <div>
+                        <div class="day-label">Piątek, 8 maja</div>
+                        <h2 class="day-title">Wyspa i Browar</h2>
+                        <p class="day-narrative">Lokrum, zachód słońca na Srđ i lokalne piwo w Gruž</p>
                     </div>
                 </div>
                 <div class="timeline">
                     <div class="tl-item">
-                        <div class="tl-time">11:00 am</div>
-                        <div class="tl-body">
+                        <div class="tl-time">Rano–południe</div>
+                        <div>
                             <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5082646,16.4401754,'Diocletian\'s Palace');return false;">Diocletian's Palace — Revisit</a>
-                                <span class="tl-duration">3 hrs</span>
+                                <a class="tl-name" href="#" onclick="openInMaps(42.6310979,18.1176678,'Wyspa Lokrum');return false;">Wyspa Lokrum</a>
+                                <span class="tl-duration">4–5 godz.</span>
                             </div>
-                            <p class="tl-notes">Return for daytime shopping in the narrow streets. Local products, souvenirs, and lunch at one of the konobas (traditional taverns) tucked inside the palace walls.</p>
-                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPAVwqr1lez80OCXYyHEp0XHV5KLtwjudmwg6M-Hi4tyChElm5sNFCINZCFPR-rEiH5wgogablk2tJskdvJbnnqcaZSYXoRsnmt2rjLAdIlwLj7vWtVXWgBvvepg77CsZn9eGUygeaxmtg65Q=s800-w400-h300" alt="Diocletian's Palace" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5082646,16.4401754,'Diocletian\'s Palace');return false;">
+                            <p class="tl-notes">15 min promem ze Starego Portu (~30€). Tron z GoT, Dead Sea lake, plaże, pawie, ogród botaniczny. Pływanie w kryształowej wodzie.</p>
+                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZM0-UMqsZmxzq9w6HyVnACEJZaVaIEyWQ2H9dFWAbz9mGUuyoSvsn82tXt8Y2zCBk8IfwDTo_m_qD2qoFpFfm8iG7W5_qvOpTQ3SuoSda6JTGWgy9ur06a8WeTln8Ue3_ZT26udAn2okqkGWIg=s800-w400-h300" alt="Lokrum" class="tl-photo">
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.6310979,18.1176678,'Wyspa Lokrum');return false;">
                                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
+                                Otwórz w Google Maps
                             </a>
                         </div>
                     </div>
                     <div class="tl-item">
-                        <div class="tl-time">8:30 pm</div>
-                        <div class="tl-body">
+                        <div class="tl-time">Wieczorem</div>
+                        <div>
                             <div class="tl-name-row">
-                                <a class="tl-name" href="#" onclick="openInMaps(43.5067575,16.4400091,'Split After Dark');return false;">Split After Dark — Boat Party</a>
-                                <span class="tl-duration">5+ hrs</span>
+                                <a class="tl-name" href="#" onclick="openInMaps(42.65,18.11,'Góra Srđ');return false;">Srđ — Góra</a>
+                                <span class="tl-duration">2 godz.</span>
                             </div>
-                            <p class="tl-notes">Sunset cruise with DJ, open bar, and the Adriatic at night. The single best group experience in Split. Book in advance.</p>
-                            <img src="https://lh3.googleusercontent.com/places/ANXAkqFuGceA7iym4z9Ajyw2p3t2eokNR6Yj7c9mrJ_bxy8Vy8BU3nUUa0qmQem-XIHSdRRJIOZh5EZWhEhN-K1w3oZfLERFFCUU20g=s800-w400-h300" alt="Split After Dark" class="tl-photo">
-                            <a class="tl-maps-link" href="#" onclick="openInMaps(43.5067575,16.4400091,'Split After Dark');return false;">
+                            <p class="tl-notes">412 m n.p.m. Najlepszy widok na Dubrovnik. Opcje: kolejka linowa (32€), Uber (22€ za 2 os.), trekking (2h). Zachód słońca obowiązkowo.</p>
+                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOwnxXlYWle9ShyuWFciWWoyr62qOHypUcLwbieA7kOLO9zMN7L9hKqQQgcxg5jfEpjgwtH8Cn3Ywc0u-OFzOWpBc3ICKVWg9lLJQ-IMO2J8yq6eLoRRvsX1Q-gGIBDD2TUPRRoogw_fdiPRQM=s800-w400-h300" alt="Srđ" class="tl-photo">
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.65,18.11,'Góra Srđ');return false;">
                                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-                                Open in Google Maps
+                                Otwórz w Google Maps
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-time">Noc</div>
+                        <div>
+                            <div class="tl-name-row">
+                                <a class="tl-name" href="#" onclick="openInMaps(42.6609757,18.0725954,'Dubrovnik Beer Company');return false;">Dubrovnik Beer Company</a>
+                                <span class="tl-duration">2–3 godz.</span>
+                            </div>
+                            <p class="tl-notes">Lokalny browar w dzielnicy Gruž. Craft beer, burgery, rock music. Tu chodzą locals, nie turyści. Spróbuj IPA Goa.</p>
+                            <img src="https://lh3.googleusercontent.com/places/ANXAkqHaGIk8XrABoM03Y4KqoPaDf6FEk5GcaiXi6Scbr585f3bS2y-0Bs5qWj4z-5gMS0nUUyq6EY8QPO-UBzuNvBjGbvCXwgemll4=s800-w400-h300" alt="DBC" class="tl-photo">
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.6609757,18.0725954,'Dubrovnik Beer Company');return false;">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                                Otwórz w Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DZIEŃ 4 -->
+            <div class="day-block" data-day="4">
+                <div class="day-header">
+                    <div class="day-num">4</div>
+                    <div>
+                        <div class="day-label">Sobota, 9 maja</div>
+                        <h2 class="day-title">Rejs lub Plaża</h2>
+                        <p class="day-narrative">Chill na łódce między wyspami albo ukryta plaża pod klifami</p>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-time">Cały dzień</div>
+                        <div>
+                            <div class="tl-name-row">
+                                <a class="tl-name" href="#" onclick="openInMaps(42.6855183,17.9502207,'Wyspa Lopud');return false;">Wyspy Elafickie — Lopud</a>
+                                <span class="tl-duration">Cały dzień</span>
+                            </div>
+                            <p class="tl-notes">Prom z portu Gruž. Lopud: piaszczysta plaża Šunj, zero samochodów, spokój. Klasztor, ogrody, świeże owoce morza. Paradise.</p>
+                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNnMM1J5KctRNmeGpf3RCAHAubbi1UpXrSfqY6o1D9x_F60FtTdXa2VT0syOkQLfYDXDXJuS6er9BGLM9hBhl651scFzCA34dRHZmGjbA3x7XBpAD9h0voqWYP28CZThtNnoS_5mLZPpr8tshk=s800-w400-h300" alt="Lopud" class="tl-photo">
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.6855183,17.9502207,'Wyspa Lopud');return false;">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                                Otwórz w Google Maps
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-time">Alternatywa</div>
+                        <div>
+                            <div class="tl-name-row">
+                                <a class="tl-name" href="#" onclick="openInMaps(42.5134084,18.3205041,'Plaża Pasjača');return false;">Plaża Pasjača</a>
+                                <span class="tl-duration">Pół dnia</span>
+                            </div>
+                            <p class="tl-notes">35 km na południowy wschód (30 min Uberem). Ukryty skarb — piasek, klify, kryształowa woda. Dużo schodów w dół. Weź jedzenie ze sobą.</p>
+                            <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOLuP3oEybdBq_5h_Zp5XCkkZjzWXTc0s4TQLnmfgInTm5zMfqUZPNQOX9sgZ5nqzf4sQug8fZ-dtFnoBjQl7nZ9JxTOH0PTf0gIUjscA68P6XHFrxSz0yDD_JDb1Wahiejz07043ATySKVXQ=s800-w400-h300" alt="Pasjača" class="tl-photo">
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.5134084,18.3205041,'Plaża Pasjača');return false;">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                                Otwórz w Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DZIEŃ 5 -->
+            <div class="day-block" data-day="5">
+                <div class="day-header">
+                    <div class="day-num">5</div>
+                    <div>
+                        <div class="day-label">Niedziela, 10 maja</div>
+                        <h2 class="day-title">Ostatnie Chwile</h2>
+                        <p class="day-narrative">Luźne śniadanie, może kawa w Cavtat pod lotniskiem — powrót o 15:05</p>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-time">Rano</div>
+                        <div>
+                            <div class="tl-name-row">
+                                <span class="tl-name">Relaksujące Śniadanie</span>
+                                <span class="tl-duration">1–2 godz.</span>
+                            </div>
+                            <p class="tl-notes">Ostatni spacer po Stradun. Croissant i cappuccino. Złap ostatnie widoki na mury i turkusowe morze.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-time">Przed lotem</div>
+                        <div>
+                            <div class="tl-name-row">
+                                <a class="tl-name" href="#" onclick="openInMaps(42.5809739,18.218728,'Cavtat');return false;">Cavtat (opcjonalnie)</a>
+                                <span class="tl-duration">1 godz.</span>
+                            </div>
+                            <p class="tl-notes">5 minut od lotniska. Urocze miasteczko z promenadą — idealne jeśli zostanie czas przed odlotem o 15:05. Kawa na waterfront.</p>
+                            <a class="tl-maps-link" href="#" onclick="openInMaps(42.5809739,18.218728,'Cavtat');return false;">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 10 C5 10 2 6.5 2 4a3 3 0 016 0c0 2.5-3 6-3 6z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                                Otwórz w Google Maps
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
-
-    <!-- ADD LOCATION -->
-    <div class="wrap">
-        <section class="add-section">
-            <div class="section-eyebrow">Your Additions</div>
-            <h2 class="section-title">Add a Location</h2>
-            <form id="addLocationForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="locationName">Location Name *</label>
-                        <input type="text" id="locationName" required placeholder="e.g., Konoba Matejuška">
-                    </div>
-                    <div class="form-group">
-                        <label for="locationType">Type</label>
-                        <select id="locationType">
-                            <option value="restaurant">Restaurant</option>
-                            <option value="bar">Bar / Club</option>
-                            <option value="attraction">Attraction</option>
-                            <option value="beach">Beach</option>
-                            <option value="shop">Shop</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label for="locationAddress">Address *</label>
-                        <input type="text" id="locationAddress" required placeholder="e.g., Tomića stine ul. 3, Split">
-                    </div>
-                    <div class="form-group full">
-                        <label for="locationPhoto">Photo URL</label>
-                        <input type="url" id="locationPhoto" placeholder="Paste an image URL (optional)">
-                        <small>Right-click any photo → "Copy image address"</small>
-                    </div>
-                    <div class="form-group full">
-                        <label for="locationNotes">Notes</label>
-                        <textarea id="locationNotes" placeholder="Why you want to visit, recommendations…"></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="btn-submit">Add to Map</button>
-            </form>
-            <div class="custom-list" id="customLocationsList"></div>
-        </section>
 
         <footer>
-            <p>Split, Croatia · May 2026</p>
-            <p>Currency: Euro · Language: Croatian (English widely spoken) · Everything walkable</p>
+            <p>Dubrovnik, Chorwacja · Maj 2026</p>
+            <p>Waluta: Euro · Język: chorwacki (angielski szeroko używany) · Wszystko w zasięgu spaceru</p>
         </footer>
     </div>
 
-    <button class="share-btn" onclick="shareTrip()">Share Trip</button>
+    <button class="share-btn" onclick="shareTrip()">Udostępnij</button>
 
     <script>
         const locations = [
-            { name: "Diocletian's Palace",   lat: 43.5082646, lng: 16.4401754, day: 1 },
-            { name: "Saint Domnius Cathedral",lat: 43.5081034, lng: 16.4404805, day: 1 },
-            { name: "Gregory of Nin Statue",  lat: 43.5094321, lng: 16.440838,  day: 1 },
-            { name: "Riva Promenade",         lat: 43.5077507, lng: 16.4384962, day: 1 },
-            { name: "Charlie's Bar",          lat: 43.5095688, lng: 16.4391911, day: 1 },
-            { name: "Marjan Hill",            lat: 43.5166667, lng: 16.4166667, day: 2 },
-            { name: "Meštrović Gallery",      lat: 43.5048696, lng: 16.4179331, day: 2 },
-            { name: "Bačvice Beach",          lat: 43.5024856, lng: 16.4468835, day: 2 },
-            { name: "Split Rooftop Bar",      lat: 43.509946,  lng: 16.4391333, day: 2 },
-            { name: "Boiler Club",            lat: 43.51065,   lng: 16.4376543, day: 2 },
-            { name: "Split After Dark",       lat: 43.5067575, lng: 16.4400091, day: 3 },
+            { name: "Stary Port",              lat: 42.6409423, lng: 18.1115678, day: 1 },
+            { name: "Stradun",                 lat: 42.6413588, lng: 18.1089672, day: 1 },
+            { name: "Buža Bar",                lat: 42.639053,  lng: 18.108707,  day: 1 },
+            { name: "Fort Lovrijenac",         lat: 42.6406296, lng: 18.1042975, day: 2 },
+            { name: "Wyspa Lokrum",            lat: 42.6310979, lng: 18.1176678, day: 3 },
+            { name: "Góra Srđ",               lat: 42.65,      lng: 18.11,      day: 3 },
+            { name: "Dubrovnik Beer Company",  lat: 42.6609757, lng: 18.0725954, day: 3 },
+            { name: "Wyspa Lopud",             lat: 42.6855183, lng: 17.9502207, day: 4 },
+            { name: "Plaża Pasjača",           lat: 42.5134084, lng: 18.3205041, day: 4 },
+            { name: "Cavtat",                  lat: 42.5809739, lng: 18.218728,  day: 5 },
         ];
 
-        const dayColors = { 1: '#3D6B9E', 2: '#3A8C84', 3: '#B5624A' };
+        const dayColors = {
+            1: '#3D6B9E',
+            2: '#3A8C84',
+            3: '#B5624A',
+            4: '#4A8C5C',
+            5: '#6B5B9E'
+        };
 
-        const map = L.map('map').setView([43.5081, 16.4402], 14);
+        const map = L.map('map').setView([42.6407, 18.1083], 12);
 
         const tileLayers = {
             default: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -928,15 +758,14 @@
         }
 
         locations.forEach(loc => {
-            const color = dayColors[loc.day];
-            const marker = L.marker([loc.lat, loc.lng], { icon: makeIcon(color, loc.day) }).addTo(map);
+            const marker = L.marker([loc.lat, loc.lng], { icon: makeIcon(dayColors[loc.day], loc.day) }).addTo(map);
             marker.bindPopup(`
                 <div style="font-family:'DM Sans',sans-serif;padding:12px;min-width:180px;">
                     <div style="font-weight:600;color:#1a1a1a;margin-bottom:4px;">${loc.name}</div>
-                    <div style="font-size:12px;color:#888;margin-bottom:8px;">Day ${loc.day}</div>
+                    <div style="font-size:12px;color:#888;margin-bottom:8px;">Dzień ${loc.day}</div>
                     <a href="#" onclick="openInMaps(${loc.lat},${loc.lng},'${loc.name.replace(/'/g,"\\'")}');return false;"
                        style="font-size:11px;color:#B5624A;text-decoration:none;font-weight:500;letter-spacing:.06em;text-transform:uppercase;">
-                        Open in Maps →
+                        Otwórz w Maps →
                     </a>
                 </div>`, { maxWidth: 260 });
         });
@@ -945,108 +774,14 @@
             window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, '_blank');
         }
 
-        // Custom locations
-        let customLocations = JSON.parse(localStorage.getItem('splitCustomLocs') || '[]');
-        const customMarkers = [];
-
-        function saveCustom() { localStorage.setItem('splitCustomLocs', JSON.stringify(customLocations)); }
-
-        function addCustomMarker(loc) {
-            const marker = L.marker([loc.lat, loc.lng], { icon: makeIcon('#6B6B6B', '★') }).addTo(map);
-            marker.bindPopup(`
-                <div style="font-family:'DM Sans',sans-serif;padding:12px;min-width:180px;">
-                    <div style="font-weight:600;color:#1a1a1a;margin-bottom:4px;">${loc.name}</div>
-                    <div style="font-size:12px;color:#888;margin-bottom:4px;">${loc.address}</div>
-                    ${loc.notes ? `<div style="font-size:12px;color:#555;font-style:italic;margin-bottom:8px;">${loc.notes}</div>` : ''}
-                    <a href="#" onclick="openInMaps(${loc.lat},${loc.lng},'${loc.name.replace(/'/g,"\\'")}');return false;"
-                       style="font-size:11px;color:#B5624A;text-decoration:none;font-weight:500;letter-spacing:.06em;text-transform:uppercase;">
-                        Open in Maps →
-                    </a>
-                </div>`, { maxWidth: 260 });
-            customMarkers.push({ id: loc.id, marker });
-        }
-
-        function renderCustomList() {
-            const container = document.getElementById('customLocationsList');
-            container.innerHTML = '';
-            if (customLocations.length === 0) return;
-            const title = document.createElement('div');
-            title.className = 'custom-list-title';
-            title.textContent = `Your locations (${customLocations.length})`;
-            container.appendChild(title);
-            customLocations.forEach(loc => {
-                const div = document.createElement('div');
-                div.className = 'custom-item';
-                div.id = `loc-${loc.id}`;
-                div.innerHTML = `
-                    <div>
-                        <div class="custom-item-name" onclick="openInMaps(${loc.lat},${loc.lng},'${loc.name.replace(/'/g,"\\'")}');map.setView([${loc.lat},${loc.lng}],16);">${loc.name}</div>
-                        <div class="custom-item-sub">${loc.type.charAt(0).toUpperCase()+loc.type.slice(1)} · ${loc.address}</div>
-                        ${loc.notes ? `<div class="custom-item-notes">${loc.notes}</div>` : ''}
-                    </div>
-                    <button class="btn-remove" onclick="removeLocation('${loc.id}')">Remove</button>
-                `;
-                container.appendChild(div);
-            });
-        }
-
-        customLocations.forEach(loc => { addCustomMarker(loc); });
-        renderCustomList();
-
-        async function geocodeAddress(address) {
-            const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address+', Split, Croatia')}&limit=1`;
-            const res = await fetch(url);
-            const data = await res.json();
-            if (!data.length) throw new Error('Not found');
-            return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
-        }
-
-        document.getElementById('addLocationForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
-            const orig = btn.textContent;
-            btn.textContent = 'Finding…'; btn.disabled = true;
-            try {
-                const coords = await geocodeAddress(document.getElementById('locationAddress').value);
-                const loc = {
-                    id: Date.now().toString(),
-                    name: document.getElementById('locationName').value,
-                    type: document.getElementById('locationType').value,
-                    address: document.getElementById('locationAddress').value,
-                    photo: document.getElementById('locationPhoto').value,
-                    notes: document.getElementById('locationNotes').value,
-                    lat: coords.lat, lng: coords.lng
-                };
-                customLocations.push(loc);
-                saveCustom();
-                addCustomMarker(loc);
-                renderCustomList();
-                map.setView([coords.lat, coords.lng], 15);
-                this.reset();
-                btn.textContent = 'Added'; setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
-            } catch(err) {
-                alert('Could not find that address. Try being more specific.');
-                btn.textContent = orig; btn.disabled = false;
-            }
-        });
-
-        function removeLocation(id) {
-            if (!confirm('Remove this location?')) return;
-            customLocations = customLocations.filter(l => l.id !== id);
-            saveCustom();
-            const m = customMarkers.find(m => m.id === id);
-            if (m) { map.removeLayer(m.marker); customMarkers.splice(customMarkers.indexOf(m), 1); }
-            renderCustomList();
-        }
-
         function shareTrip() {
             if (navigator.share) {
-                navigator.share({ title: 'Split Adventure', text: 'Our Split trip — May 7–10, 2026', url: window.location.href });
+                navigator.share({ title: 'Dubrovnik Adventure', text: 'Plan naszego wyjazdu do Dubrownika!', url: window.location.href });
             } else {
                 navigator.clipboard.writeText(window.location.href).then(() => {
                     const btn = document.querySelector('.share-btn');
                     const orig = btn.textContent;
-                    btn.textContent = 'Link Copied';
+                    btn.textContent = 'Link skopiowany';
                     setTimeout(() => { btn.textContent = orig; }, 2000);
                 });
             }
