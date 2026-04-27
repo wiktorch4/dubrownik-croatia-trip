@@ -147,14 +147,13 @@
         .day-block { border-bottom: 1px solid var(--rule); }
 
         .day-header {
-            padding: 2.5rem 0 1.5rem;
             display: grid;
             grid-template-columns: 60px 1fr;
             gap: 1rem;
             align-items: start;
         }
         @media (min-width: 640px) {
-            .day-header { padding: 4rem 0 2rem; grid-template-columns: 90px 1fr; gap: 2rem; }
+            .day-header { grid-template-columns: 90px 1fr; gap: 2rem; }
         }
         .day-num {
             font-family: var(--f-serif);
@@ -497,10 +496,25 @@
         }
         .share-btn:hover { opacity: 0.8; }
 
-        /* Day accent strips */
-        .day-block[data-day="1"] .day-num { color: oklch(88% 0.04 242); }
-        .day-block[data-day="2"] .day-num { color: oklch(84% 0.06 196); }
-        .day-block[data-day="3"] .day-num { color: oklch(86% 0.06 38); }
+        /* Day header colored bands */
+        .day-header {
+            border-radius: 12px;
+            padding: 2rem 1.5rem 1.5rem;
+            margin: 2rem 0 0;
+        }
+        .day-block[data-day="1"] .day-header { background: oklch(94% 0.03 242); }
+        .day-block[data-day="2"] .day-header { background: oklch(93% 0.03 196); }
+        .day-block[data-day="3"] .day-header { background: oklch(94% 0.03 38); }
+
+        .day-block[data-day="1"] .day-num { color: oklch(70% 0.08 242); }
+        .day-block[data-day="2"] .day-num { color: oklch(65% 0.09 196); }
+        .day-block[data-day="3"] .day-num { color: oklch(70% 0.10 38); }
+
+        .day-block[data-day="1"] .day-label { color: oklch(45% 0.08 242); }
+        .day-block[data-day="2"] .day-label { color: oklch(40% 0.09 196); }
+        .day-block[data-day="3"] .day-label { color: oklch(42% 0.10 38); }
+
+        .tl-photo { border-radius: 8px; }
 
         /* Map popup override */
         .leaflet-popup-content-wrapper {
@@ -565,6 +579,28 @@
             </div>
         </section>
 
+    </div>
+
+    <!-- MAP -->
+    <div class="wrap-wide">
+        <section class="map-section">
+            <div class="wrap">
+                <div class="section-eyebrow">Interactive Map</div>
+                <h2 class="section-title">All Locations</h2>
+            </div>
+            <div style="padding: 0 1.25rem;">
+                <div class="map-style-switcher">
+                    <button class="map-style-btn active" onclick="changeMapStyle('default', this)">Default</button>
+                    <button class="map-style-btn" onclick="changeMapStyle('satellite', this)">Satellite</button>
+                    <button class="map-style-btn" onclick="changeMapStyle('terrain', this)">Terrain</button>
+                </div>
+                <div id="map"></div>
+                <p class="map-hint">Click any location name throughout the page to open in Google Maps.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="wrap">
         <!-- DAYS -->
         <section class="days-section">
 
@@ -789,21 +825,6 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <!-- MAP -->
-    <div class="wrap-wide">
-        <section class="map-section">
-            <div class="section-eyebrow">Interactive Map</div>
-            <h2 class="section-title">All Locations</h2>
-            <div class="map-style-switcher">
-                <button class="map-style-btn active" onclick="changeMapStyle('default', this)">Default</button>
-                <button class="map-style-btn" onclick="changeMapStyle('satellite', this)">Satellite</button>
-                <button class="map-style-btn" onclick="changeMapStyle('terrain', this)">Terrain</button>
-            </div>
-            <div id="map"></div>
-            <p class="map-hint">Click any location name throughout the page to open in Google Maps.</p>
         </section>
     </div>
 
