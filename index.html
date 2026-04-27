@@ -14,9 +14,9 @@
             --bg:        oklch(97% 0.008 75);
             --bg-alt:    oklch(94% 0.010 75);
             --ink:       oklch(18% 0.010 255);
-            --ink-mid:   oklch(42% 0.010 255);
-            --ink-light: oklch(65% 0.008 255);
-            --rule:      oklch(88% 0.008 75);
+            --ink-mid:   oklch(35% 0.010 255);
+            --ink-light: oklch(50% 0.008 255);
+            --rule:      oklch(84% 0.008 75);
             --accent:    oklch(54% 0.13 38);   /* muted terracotta */
             --navy:      oklch(32% 0.07 242);  /* deep adriatic */
             --teal:      oklch(48% 0.09 196);  /* coast teal */
@@ -35,19 +35,28 @@
         }
 
         /* ── LAYOUT ─────────────────────────────────── */
-        .wrap      { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-        .wrap-wide { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .wrap      { max-width: 900px; margin: 0 auto; padding: 0 1.25rem; }
+        .wrap-wide { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+        @media (min-width: 640px) {
+            .wrap, .wrap-wide { padding: 0 2rem; }
+        }
 
         /* ── MASTHEAD ───────────────────────────────── */
         .masthead {
             border-bottom: 1px solid var(--rule);
-            padding: 5rem 0 4rem;
+            padding: 3rem 0 2.5rem;
+        }
+        @media (min-width: 640px) {
+            .masthead { padding: 5rem 0 4rem; }
         }
         .masthead-inner {
             display: grid;
-            grid-template-columns: 1fr auto;
+            grid-template-columns: 1fr;
             align-items: end;
-            gap: 2rem;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .masthead-inner { grid-template-columns: 1fr auto; gap: 2rem; }
         }
         .masthead-eyebrow {
             font-family: var(--f-sans);
@@ -55,8 +64,8 @@
             font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1rem;
+            color: oklch(48% 0.13 38);
+            margin-bottom: 0.75rem;
         }
         .masthead h1 {
             font-family: var(--f-serif);
@@ -71,10 +80,13 @@
             color: var(--navy);
         }
         .masthead-meta {
-            text-align: right;
+            text-align: left;
             font-size: 0.85rem;
-            color: var(--ink-light);
+            color: var(--ink-mid);
             line-height: 1.8;
+        }
+        @media (min-width: 640px) {
+            .masthead-meta { text-align: right; }
         }
         .masthead-meta strong { color: var(--ink); font-weight: 500; }
 
@@ -110,16 +122,16 @@
             font-weight: 500;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--accent);
+            color: oklch(44% 0.13 38);
             margin-bottom: 1.2rem;
         }
         .tip-col ul { list-style: none; }
         .tip-col li {
-            font-size: 0.88rem;
-            color: var(--ink-mid);
-            padding: 0.35rem 0;
+            font-size: 0.9rem;
+            color: var(--ink);
+            padding: 0.45rem 0;
             border-bottom: 1px solid var(--rule);
-            line-height: 1.5;
+            line-height: 1.55;
         }
         .tip-col li:last-child { border-bottom: none; }
 
@@ -135,19 +147,25 @@
         .day-block { border-bottom: 1px solid var(--rule); }
 
         .day-header {
-            padding: 4rem 0 2rem;
+            padding: 2.5rem 0 1.5rem;
             display: grid;
-            grid-template-columns: 90px 1fr;
-            gap: 2rem;
+            grid-template-columns: 60px 1fr;
+            gap: 1rem;
             align-items: start;
+        }
+        @media (min-width: 640px) {
+            .day-header { padding: 4rem 0 2rem; grid-template-columns: 90px 1fr; gap: 2rem; }
         }
         .day-num {
             font-family: var(--f-serif);
-            font-size: 4.5rem;
+            font-size: 3rem;
             font-weight: 400;
             line-height: 1;
             color: var(--rule);
             letter-spacing: -0.04em;
+        }
+        @media (min-width: 640px) {
+            .day-num { font-size: 4.5rem; }
         }
         .day-header-text {}
         .day-label {
@@ -155,7 +173,7 @@
             font-weight: 500;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--ink-light);
+            color: var(--ink-mid);
             margin-bottom: 0.5rem;
         }
         .day-title {
@@ -179,19 +197,22 @@
 
         .tl-item {
             display: grid;
-            grid-template-columns: 90px 1fr;
-            gap: 2rem;
-            padding: 2rem 0;
+            grid-template-columns: 60px 1fr;
+            gap: 1rem;
+            padding: 1.5rem 0;
             border-top: 1px solid var(--rule);
             position: relative;
+        }
+        @media (min-width: 640px) {
+            .tl-item { grid-template-columns: 90px 1fr; gap: 2rem; padding: 2rem 0; }
         }
 
         .tl-time {
             padding-top: 0.15rem;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 500;
-            letter-spacing: 0.06em;
-            color: var(--ink-light);
+            letter-spacing: 0.04em;
+            color: var(--ink-mid);
             text-transform: uppercase;
         }
 
@@ -226,8 +247,8 @@
         }
 
         .tl-notes {
-            font-size: 0.9rem;
-            color: var(--ink-mid);
+            font-size: 0.93rem;
+            color: var(--ink);
             line-height: 1.7;
             margin-bottom: 1rem;
         }
@@ -242,6 +263,9 @@
             filter: saturate(0.85) contrast(1.02);
             transition: filter 0.3s;
         }
+        @media (max-width: 639px) {
+            .tl-photo { max-width: 100%; }
+        }
         .tl-photo:hover { filter: saturate(1) contrast(1.02); }
 
         .tl-maps-link {
@@ -252,21 +276,17 @@
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--accent);
+            color: oklch(44% 0.13 38);
             text-decoration: none;
             margin-top: 0.75rem;
+            padding: 0.5rem 0;
+            min-height: 44px;
             transition: opacity 0.2s;
         }
         .tl-maps-link:hover { opacity: 0.65; }
         .tl-maps-link svg { flex-shrink: 0; }
 
-        @media (max-width: 600px) {
-            .day-header, .tl-item {
-                grid-template-columns: 60px 1fr;
-                gap: 1rem;
-            }
-            .day-num { font-size: 3rem; }
-        }
+
 
         /* ── MAP ────────────────────────────────────── */
         .map-section {
@@ -278,7 +298,7 @@
             font-weight: 500;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--accent);
+            color: oklch(44% 0.13 38);
             margin-bottom: 1.5rem;
         }
         .section-title {
@@ -291,9 +311,12 @@
 
         #map {
             width: 100%;
-            height: 520px;
+            height: 380px;
             border-radius: 2px;
             border: 1px solid var(--rule);
+        }
+        @media (min-width: 640px) {
+            #map { height: 520px; }
         }
 
         .map-style-switcher {
@@ -325,8 +348,8 @@
 
         .map-hint {
             margin-top: 1rem;
-            font-size: 0.8rem;
-            color: var(--ink-light);
+            font-size: 0.82rem;
+            color: var(--ink-mid);
         }
 
         /* ── ADD LOCATION ───────────────────────────── */
@@ -348,21 +371,22 @@
             font-weight: 500;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--ink-mid);
+            color: var(--ink);
         }
         .form-group input,
         .form-group textarea,
         .form-group select {
             font-family: var(--f-sans);
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--ink);
             background: transparent;
             border: none;
-            border-bottom: 1px solid var(--rule);
-            padding: 0.6rem 0;
+            border-bottom: 1.5px solid var(--rule);
+            padding: 0.75rem 0;
             outline: none;
             transition: border-color 0.2s;
             width: 100%;
+            min-height: 44px;
         }
         .form-group input:focus,
         .form-group textarea:focus,
@@ -370,7 +394,7 @@
             border-color: var(--ink);
         }
         .form-group textarea { resize: vertical; min-height: 70px; }
-        .form-group small { font-size: 0.78rem; color: var(--ink-light); }
+        .form-group small { font-size: 0.78rem; color: var(--ink-mid); }
 
         .btn-submit {
             margin-top: 2rem;
@@ -420,8 +444,8 @@
             transition: color 0.2s;
         }
         .custom-item-name:hover { color: var(--accent); }
-        .custom-item-sub { font-size: 0.83rem; color: var(--ink-light); margin-top: 0.2rem; }
-        .custom-item-notes { font-size: 0.85rem; color: var(--ink-mid); margin-top: 0.4rem; font-style: italic; }
+        .custom-item-sub { font-size: 0.85rem; color: var(--ink-mid); margin-top: 0.2rem; }
+        .custom-item-notes { font-size: 0.87rem; color: var(--ink); margin-top: 0.4rem; font-style: italic; }
 
         .btn-remove {
             background: none;
@@ -448,14 +472,14 @@
             padding: 3rem 0;
             text-align: center;
         }
-        footer p { font-size: 0.82rem; color: var(--ink-light); line-height: 2; }
+        footer p { font-size: 0.82rem; color: var(--ink-mid); line-height: 2; }
         footer a { color: var(--accent); text-decoration: none; }
 
         /* ── SHARE BTN ───────────────────────────────── */
         .share-btn {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 1.25rem;
+            right: 1.25rem;
             background: var(--ink);
             color: var(--bg);
             border: none;
