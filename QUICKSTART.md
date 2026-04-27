@@ -1,104 +1,133 @@
-# 🚀 Quick Start Guide - Split Croatia Trip Planner
+# 🚀 Szybki Start - Dubrovnik Trip Planner
 
-## Option 1: GitHub Pages (Recommended) 🌐
+## Opcja 1: GitHub Pages (Polecana) 🌐
 
-This will host your app online for FREE!
+Będzie hostować Twoją aplikację online ZA DARMO!
 
-### Steps:
-1. **Download** the files (you already have them!)
-2. **Create GitHub account** (if you don't have one) at [github.com](https://github.com)
-3. **Create new repository**:
-   - Click "+" → "New repository"
-   - Name: `split-croatia-trip`
-   - Make it **Public**
-   - Don't initialize with README
-4. **Upload files**:
-   - Click "uploading an existing file"
-   - Drag all files from the folder
+### Kroki:
+1. **Pobierz** pliki (już je masz!)
+2. **Utwórz konto GitHub** (jeśli nie masz) na [github.com](https://github.com)
+3. **Utwórz nowe repozytorium**:
+   - Kliknij "+" → "New repository"
+   - Nazwa: `dubrovnik-trip`
+   - Ustaw jako **Public**
+   - Nie inicjalizuj z README
+4. **Wgraj pliki**:
+   - Kliknij "uploading an existing file"
+   - Przeciągnij wszystkie pliki z folderu
    - Commit changes
-5. **Enable GitHub Pages**:
-   - Go to Settings → Pages
+5. **Włącz GitHub Pages**:
+   - Przejdź do Settings → Pages
    - Source: main branch, / (root)
    - Save
-6. **Done!** Your site will be live at:
+6. **Gotowe!** Twoja strona będzie dostępna pod:
    ```
-   https://YOUR_USERNAME.github.io/split-croatia-trip/
+   https://TWOJA_NAZWA.github.io/dubrovnik-trip/
    ```
 
-**Time:** 5 minutes  
-**Cost:** FREE  
-**URL:** Your own custom link to share!
+**Czas:** 5 minut  
+**Koszt:** DARMOWE  
+**URL:** Własny link do udostępnienia!
 
 ---
 
-## Option 2: Just Use the File 📁
+## Opcja 2: Tylko Użyj Pliku 📁
 
-If you just want to use it yourself or share with a few friends:
+Jeśli chcesz tylko dla siebie lub kilku znajomych:
 
-1. Open `index.html` in any web browser
-2. That's it! Works perfectly offline
-3. Share the file via email/Dropbox/Google Drive
+1. Otwórz `index.html` w dowolnej przeglądarce
+2. To wszystko! Działa idealnie offline
+3. Udostępnij plik przez email/Dropbox/Google Drive
 
-**Time:** 0 minutes  
-**Cost:** FREE  
-**Limitation:** Need to share the actual file
-
----
-
-## Option 3: Use Git (For Developers) 💻
-
-If you're comfortable with command line:
-
-```bash
-cd split-croatia-trip
-git remote add origin https://github.com/YOUR_USERNAME/split-croatia-trip.git
-git push -u origin main
-```
-
-Then enable GitHub Pages in repository settings.
+**Czas:** 0 minut  
+**Koszt:** DARMOWE  
+**Ograniczenie:** Musisz udostępniać sam plik
 
 ---
 
-## 📱 Make it a Mobile App (Bonus!)
+## Opcja 3: Netlify Drop (Super Szybka!) ⚡
 
-Once hosted on GitHub Pages, users can:
-1. Open the site on their phone
-2. Tap the browser menu
-3. Select "Add to Home Screen"
-4. Now it works like a native app! 📲
+Dosłownie przeciągnij i upuść!
 
----
+1. Przejdź do https://app.netlify.com/drop
+2. Przeciągnij cały folder
+3. **Natychmiastowy link!** (np. `https://losowa-nazwa-123.netlify.app`)
 
-## 🎨 Customize for Your Trip
-
-Want to make this for a different destination?
-
-1. Open `index.html` in a text editor
-2. Find the `locations` array (around line 600)
-3. Update:
-   - Location names
-   - Coordinates (get from Google Maps)
-   - Photos (use image URLs)
-   - Dates and descriptions
-4. Save and refresh!
+**Czas:** 30 sekund  
+**Koszt:** DARMOWE  
+**Zaleta:** Nie wymaga konta (na początku)
 
 ---
 
-## 🆘 Need Help?
+## 📱 Zrób z Tego Aplikację Mobilną
 
-Check `DEPLOYMENT.md` for detailed instructions, or:
-- [GitHub Pages Docs](https://docs.github.com/en/pages)
-- [Leaflet.js Docs](https://leafletjs.com/) (for the map)
+Po hostingu na GitHub Pages lub Netlify:
+1. Otwórz stronę na telefonie
+2. Naciśnij menu przeglądarki
+3. Wybierz "Dodaj do ekranu głównego"
+4. Teraz działa jak natywna aplikacja! 📲
 
 ---
 
-## ✨ Features Your Friends Will Love
+## 🎨 Dostosuj do Swojej Wycieczki
 
-- 📍 Click any location → Opens in Google Maps
-- 🗺️ Switch map views (Street/Satellite/Terrain)
-- ➕ Add their own discoveries
-- 💾 Auto-saves their additions
-- 📱 Works on phone, tablet, desktop
-- 🌐 Works offline after first load
+Chcesz zrobić to dla innego miejsca?
 
-Share the link and start planning together! 🎉
+1. Otwórz `index.html` w edytorze tekstu
+2. Znajdź tablicę `locations` (około linii 650)
+3. Zaktualizuj:
+   - Nazwy miejsc
+   - Współrzędne (pobierz z Google Maps)
+   - Zdjęcia (użyj URL zdjęć)
+   - Daty i opisy
+4. Zapisz i odśwież!
+
+---
+
+## ✨ Funkcje, Które Pokochają Twoi Znajomi
+
+- 📍 Kliknij dowolne miejsce → Otwiera w Google Maps
+- 🗺️ Przełącz widoki mapy (Ulica/Satelita/Teren)
+- 📱 Działa na telefonie, tablecie, komputerze
+- 🌐 Działa offline po pierwszym załadowaniu
+
+Udostępnij link i zacznijcie planować razem! 🎉
+
+---
+
+## 🆘 Potrzebujesz Pomocy?
+
+Sprawdź `DEPLOYMENT.md` dla szczegółowych instrukcji, lub:
+- [Dokumentacja GitHub Pages](https://docs.github.com/en/pages)
+- [Dokumentacja Leaflet.js](https://leafletjs.com/) (dla mapy)
+
+---
+
+## 💡 Pro Tipy dla Dubrownika
+
+### Transport
+- **Lotnisko → Centrum:** Bus Atlas (~35 kuna), Uber (~250 kuna), taxi (~300 kuna)
+- **W mieście:** Wszystko w zasięgu spaceru
+- **Na Srđ:** Kolejka linowa 32€ w/r, Uber 22€ w/r dla 2 osób
+
+### Pieniądze
+- **Waluta:** Euro (€) od 2023 oficjalnie
+- **Dubrovnik Pass:** ~300 kuna (40€) - warto jeśli planujesz mury, muzea, fort
+- **Jedzenie:** 80-150 kuna obiad, 50-100 kuna śniadanie
+- **Piwo:** 30-40 kuna w centrum, 20-30 kuna poza
+
+### Must-Have Apps
+- **Google Maps:** Offline mapy
+- **GetByBus:** Busy w Chorwacji
+- **Uber/Bolt:** W Dubrowniku działają
+- **Ta aplikacja!** Dodaj do ekranu głównego 😉
+
+### Najlepsze Czasy
+- **Mury miejskie:** 8:00-10:00 (mniej ludzi, chłodniej)
+- **Buža Bar:** Zachód słońca (19:00-20:30 w maju)
+- **Lokrum:** Rano z pierwszym promem (9:00)
+- **Srđ:** Zachód słońca dla widoków
+
+---
+
+Życzymy wspaniałej podróży! 🌊☀️

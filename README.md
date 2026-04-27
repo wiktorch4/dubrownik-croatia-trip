@@ -1,90 +1,105 @@
-# 🇭🇷 Split Croatia Trip Planner
+# 🇭🇷 Dubrovnik Trip Planner
 
-An interactive trip itinerary web app for exploring Split, Croatia - May 7-10, 2026.
+Interaktywna aplikacja webowa z planem wycieczki do Dubrownika, Chorwacja - 6-10 maja 2026.
 
-## ✨ Features
+## ✨ Funkcje
 
-- 📍 **Interactive Map** with all locations marked
-- 🗺️ **Multiple Map Views** - Default, Satellite, and Terrain
-- 📸 **Beautiful Photos** of every location
-- 🎯 **Clickable Locations** - Opens directly in Google Maps
-- ➕ **Add Custom Places** - Found a great restaurant? Add it!
-- 💾 **Auto-Save** - Your custom locations are saved locally
-- 📱 **Mobile Friendly** - Works perfectly on phones and tablets
-- 🌐 **Works Offline** - Once loaded, no internet needed
+- 📍 **Interaktywna Mapa** ze wszystkimi miejscami oznaczonymi
+- 🗺️ **Wiele Widoków Mapy** - Domyślny, Satelita, Teren
+- 📸 **Piękne Zdjęcia** każdego miejsca
+- 🎯 **Klikalne Lokalizacje** - Otwiera bezpośrednio w Google Maps
+- 📱 **Mobilna** - Działa idealnie na telefonach i tabletach
+- 🌐 **Działa Offline** - Po załadowaniu, nie wymaga internetu
 
-## 🏛️ Itinerary Highlights
+## 🏛️ Plan Wycieczki
 
-### Day 1 - Ancient Split & First Night Out
-- Diocletian's Palace (UNESCO World Heritage Site)
-- Saint Domnius Cathedral with Bell Tower
-- Gregory of Nin Statue (don't forget to rub the toe!)
-- Riva Promenade
-- Charlie's Bar Split
+### Dzień 1 (6.05) - Przylot i Chill
+- Stary Port Dubrownik
+- Stradun (główna ulica Starego Miasta)
+- Buža Bar (legendarny bar na klifie!)
 
-### Day 2 - Nature & Views
-- Marjan Hill hiking
-- Meštrović Gallery
-- Bačvice Beach
-- Split Rooftop Bar
-- Boiler Club
+### Dzień 2 (7.05) - Akcja i Widoki
+- Kajaki do Jaskini Betina
+- Fort Lovrijenac (Game of Thrones!)
+- Kolacja w Starym Mieście + kluby
 
-### Day 3 - Final Adventures
-- Palace revisit & shopping
-- Split After Dark Boat Party 🎉⛵
+### Dzień 3 (8.05) - Wyspa i Browar
+- Wyspa Lokrum (GoT Tron, Dead Sea, pawie)
+- Góra Srđ (najlepszy widok na miasto!)
+- Dubrovnik Beer Company (craft beer w Gruž)
+
+### Dzień 4 (9.05) - Rejs lub Plaża
+- Wyspy Elafickie - Lopud (rajskie plaże)
+- LUB Plaża Pasjača (ukryta gem pod klifami)
+- Wieczorne kluby
+
+### Dzień 5 (10.05) - Ostatnie Chwile
+- Relaksujące śniadanie
+- Cavtat (opcjonalnie, jeśli jest czas)
+- Powrót o 15:05
 
 ## 🚀 Live Demo
 
-Visit: [Your GitHub Pages URL will be here]
+Odwiedź: [Twój GitHub Pages URL będzie tutaj]
 
-## 💻 Local Development
+## 💻 Lokalna Instalacja
 
-1. Clone this repository:
+1. Sklonuj repozytorium:
 ```bash
-git clone https://github.com/YOUR_USERNAME/split-croatia-trip.git
+git clone https://github.com/TWOJA_NAZWA/dubrovnik-trip.git
 ```
 
-2. Open `index.html` in your browser
+2. Otwórz `index.html` w przeglądarce
 
-That's it! No build process needed.
+To wszystko! Nie wymaga kompilacji.
 
-## 🛠️ Technology
+## 🛠️ Technologia
 
-- Pure HTML, CSS, and JavaScript
-- [Leaflet.js](https://leafletjs.com/) for interactive maps
+- Czysty HTML, CSS i JavaScript
+- [Leaflet.js](https://leafletjs.com/) dla interaktywnych map
 - OpenStreetMap & CartoDB tiles
 - Google Fonts (Playfair Display & Karla)
-- LocalStorage for data persistence
 
-## 📝 Customization
+## 📝 Personalizacja
 
-You can easily customize this for your own trips:
+Możesz łatwo dostosować to do własnych wycieczek:
 
-1. Edit the `locations` array in the JavaScript
-2. Update the dates and destination
-3. Add your own photos
-4. Modify the color scheme in CSS variables
+1. Edytuj tablicę `locations` w JavaScript
+2. Zaktualizuj daty i miejsce docelowe
+3. Dodaj własne zdjęcia
+4. Zmień schemat kolorów w zmiennych CSS
 
-## 🤝 Contributing
+## 🤝 Współpraca
 
-Feel free to fork this project and adapt it for your own trips! If you make improvements, pull requests are welcome.
+Śmiało forkuj ten projekt i dostosuj do własnych podróży! Jeśli wprowadzisz ulepszenia, pull requesty są mile widziane.
 
-## 📄 License
+## 📄 Licencja
 
-MIT License - Feel free to use this for your own travels!
+MIT License - Używaj swobodnie dla własnych podróży!
 
-## 🌟 Tips for Using
+## 🌟 Wskazówki
 
-- **Click any location name** with 📍 to open in Google Maps
-- **Use the map style switcher** to see satellite or terrain views
-- **Add your discoveries** using the form at the bottom
-- **Share the link** with friends - they can add their own spots too!
+- **Kliknij dowolną nazwę miejsca** z 📍 aby otworzyć w Google Maps
+- **Użyj przełącznika stylów mapy** aby zobaczyć widoki satelitarne lub terenowe
+- **Udostępnij link** znajomym - mogą dodać swoje odkrycia też!
 
-## 📸 Screenshots
+## 💡 Praktyczne Informacje
 
-[Add screenshots of your app here]
+- **Waluta:** Euro (€) lub Chorwacka Kuna (HRK)
+- **Język:** Chorwacki (angielski szeroko używany)
+- **Najlepszy czas:** Maj-wrzesień
+- **Lotnisko:** Dubrovnik Airport (DBV)
+- **Transport:** Wszystko w zasięgu spaceru lub krótkiej jazdy
+
+## 📌 Must-See
+
+1. **Mury Miejskie** - Spacer wzdłuż 2km murów (wczesny poranek!)
+2. **Fort Lovrijenac** - Red Keep z Game of Thrones
+3. **Wyspa Lokrum** - 15 min promem, rajska wyspa
+4. **Buža Bar** - Zachód słońca na klifie
+5. **Srđ** - Najlepszy widok 360° na miasto
 
 ---
 
-Made with ❤️ for exploring beautiful Split, Croatia 🌊
+Stworzono z ❤️ dla odkrywania pięknego Dubrownika 🌊
 

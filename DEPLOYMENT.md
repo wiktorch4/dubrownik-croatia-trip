@@ -1,123 +1,101 @@
-# 🚀 GitHub Deployment Instructions
+# 🚀 Instrukcja Wdrożenia na GitHub
 
-## Step 1: Create GitHub Repository
+## Krok 1: Utwórz Repozytorium GitHub
 
-1. Go to [GitHub.com](https://github.com) and log in
-2. Click the **"+"** icon in the top right → **"New repository"**
-3. Fill in:
-   - **Repository name**: `split-croatia-trip` (or any name you prefer)
-   - **Description**: "Interactive trip planner for Split, Croatia 🇭🇷"
-   - **Public** or **Private** (Public needed for free GitHub Pages)
-   - **DON'T** initialize with README (we already have one)
-4. Click **"Create repository"**
+1. Przejdź do [GitHub.com](https://github.com) i zaloguj się
+2. Kliknij ikonę **"+"** w prawym górnym rogu → **"New repository"**
+3. Wypełnij:
+   - **Nazwa repozytorium**: `dubrovnik-trip` (lub dowolna nazwa)
+   - **Opis**: "Interaktywny plan wycieczki do Dubrownika, Chorwacja 🇭🇷"
+   - **Public** (wymagane dla darmowego GitHub Pages)
+   - **NIE** inicjalizuj z README (już go masz)
+4. Kliknij **"Create repository"**
 
-## Step 2: Push Your Code
+## Krok 2: Wgraj Swoje Pliki
 
-Copy the commands from GitHub's "…or push an existing repository from the command line" section.
+### Opcja A: Przez Przeglądarkę (Najłatwiejsza)
 
-They'll look like this (replace YOUR_USERNAME with your actual GitHub username):
+1. Po utworzeniu repozytorium zobaczysz stronę z instrukcjami
+2. Poszukaj linku **"uploading an existing file"** (w środkowej sekcji)
+3. Kliknij go
+4. **Przeciągnij wszystkie pliki** z rozpakowanego folderu:
+   - index.html
+   - README.md
+   - LICENSE
+   - DEPLOYMENT.md
+   - QUICKSTART.md
+   - .gitignore
+5. Przewiń w dół i kliknij **"Commit changes"**
+
+### Opcja B: Przez Linię Poleceń (Dla Zaawansowanych)
 
 ```bash
-cd /home/claude/split-croatia-trip
-git remote add origin https://github.com/YOUR_USERNAME/split-croatia-trip.git
+cd ścieżka/do/dubrovnik-repo
+git init
+git add .
+git commit -m "Pierwszy commit: Plan wycieczki do Dubrownika"
 git branch -M main
+git remote add origin https://github.com/TWOJA_NAZWA/dubrovnik-trip.git
 git push -u origin main
 ```
 
-**OR if you're using SSH:**
+## Krok 3: Włącz GitHub Pages
 
-```bash
-cd /home/claude/split-croatia-trip
-git remote add origin git@github.com:YOUR_USERNAME/split-croatia-trip.git
-git branch -M main
-git push -u origin main
-```
-
-## Step 3: Enable GitHub Pages
-
-1. Go to your repository on GitHub
-2. Click **"Settings"** tab
-3. Scroll down to **"Pages"** in the left sidebar
-4. Under **"Source"**, select:
+1. Przejdź do swojego repozytorium na GitHub
+2. Kliknij zakładkę **"Settings"**
+3. Przewiń w dół do **"Pages"** w lewym menu bocznym
+4. W sekcji **"Source"** wybierz:
    - Branch: **main**
    - Folder: **/ (root)**
-5. Click **"Save"**
+5. Kliknij **"Save"**
 
-## Step 4: Wait & Access Your Site
+## Krok 4: Zaczekaj i Wejdź na Swoją Stronę
 
-- GitHub Pages will build your site (takes 1-2 minutes)
-- Your site will be live at: `https://YOUR_USERNAME.github.io/split-croatia-trip/`
-- You can find the exact URL in the Pages settings
+- GitHub Pages zbuduje Twoją stronę (zajmuje 1-2 minuty)
+- Twoja strona będzie dostępna pod: `https://TWOJA_NAZWA.github.io/dubrovnik-trip/`
+- Dokładny URL znajdziesz w ustawieniach Pages
 
-## 🎉 That's It!
+## 🎉 Gotowe!
 
-Your Split Croatia trip planner is now live on the internet!
+Twój plan wycieczki do Dubrownika jest teraz dostępny online!
 
-### Share with Friends:
-Just send them the GitHub Pages URL. They can:
-- View the interactive map
-- Click locations to open in Google Maps
-- Add their own custom places (saved locally)
-- Switch between map views
+### Udostępnij Znajomym:
+Wyślij im link GitHub Pages. Mogą:
+- Przeglądać interaktywną mapę
+- Klikać lokalizacje aby otworzyć w Google Maps
+- Przeglądać na telefonie podczas wycieczki
 
-## 📱 Make it a Mobile App (PWA - Optional)
+## 📱 Dodatkowe Wskazówki
 
-Want it to work like a mobile app? Add these files:
+### Problem: Strona nie działa
+- Sprawdź czy w Settings → Pages jest zielony komunikat "Your site is published at..."
+- Poczekaj 2-3 minuty i odśwież
+- Upewnij się, że branch to "main" a folder to "/ (root)"
 
-### Create `manifest.json`:
-```json
-{
-  "name": "Split Croatia Trip",
-  "short_name": "Split Trip",
-  "description": "Interactive trip planner for Split, Croatia",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#0077BE",
-  "theme_color": "#0077BE",
-  "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
-}
-```
+### Problem: Nie widzę "uploading an existing file"
+- To pojawia się tylko gdy repozytorium jest puste
+- Jeśli już dodałeś pliki, użyj: **"Add file"** → **"Upload files"** (przycisk w prawym górnym rogu)
 
-Add to `<head>` in index.html:
-```html
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0077BE">
-<meta name="apple-mobile-web-app-capable" content="yes">
-```
+## 🔄 Przyszłe Aktualizacje
 
-Then commit and push:
+Kiedy wprowadzisz zmiany w pliku:
+
+### Przez Przeglądarkę:
+1. Otwórz repozytorium na GitHub
+2. Kliknij na plik do edycji
+3. Kliknij ikonę ołówka (Edit)
+4. Wprowadź zmiany
+5. Przewiń w dół → "Commit changes"
+
+### Przez Linię Poleceń:
 ```bash
 git add .
-git commit -m "Add PWA support"
+git commit -m "Opis zmian"
 git push
 ```
 
-Now users can "Add to Home Screen" on mobile! 📱
-
-## 🔄 Future Updates
-
-Whenever you make changes:
-
-```bash
-cd /home/claude/split-croatia-trip
-git add .
-git commit -m "Your update message"
-git push
-```
-
-GitHub Pages will automatically update your live site!
+GitHub Pages automatycznie zaktualizuje Twoją stronę!
 
 ---
 
-**Need Help?** Check [GitHub Pages documentation](https://docs.github.com/en/pages)
+**Potrzebujesz Pomocy?** Sprawdź [Dokumentację GitHub Pages](https://docs.github.com/en/pages)
